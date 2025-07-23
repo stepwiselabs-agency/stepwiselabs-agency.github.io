@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Stepwise Labs - AI Agency Coming Soon">
-  <title>Stepwise Labs | Coming Soon</title>
+  <meta name="description" content="Stepwise Labs - AI Chatbot MVP Coming Soon">
+  <title>Stepwise Labs | AI Chatbot MVP</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,47 +12,97 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 0 1em;
       text-align: center;
     }
 
-    h1 {
-      font-size: 3em;
-      margin: 0.2em 0;
-    }
-
-    p {
-      font-size: 1.2em;
-      color: #d3d3d3;
-      max-width: 500px;
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 4em;
     }
 
     .logo {
-      font-size: 1.5em;
+      font-size: 1.8em;
       font-weight: 600;
       color: #00ffff;
-      letter-spacing: 1px;
-      margin-bottom: 2em;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 0.3em;
+    }
+
+    p.subtitle {
+      font-size: 1.2em;
+      color: #d3d3d3;
+      margin-bottom: 3em;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5em;
+      width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 1.4em;
+      color: #00ffff;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    .card a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 0.8em;
     }
 
     .footer {
-      position: absolute;
-      bottom: 20px;
+      text-align: center;
+      margin-top: 4em;
+      padding-bottom: 2em;
+      color: #888;
       font-size: 0.9em;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="logo">Stepwise Labs</div>
-  <h1>We’re Coming Soon</h1>
-  <p>
-    Stepwise Labs is building cutting-edge AI solutions that will transform the way businesses innovate. Stay tuned.
-  </p>
-  <div class="footer">© 2025 Stepwise Labs. All rights reserved.</div>
+  <div class="container">
+    <div class="logo">Stepwise Labs</div>
+    <h1>We're Coming Soon</h1>
+    <p class="subtitle">AI made simple. Here’s a sneak peek of what we’re building:</p>
+
+    <div class="projects">
+      <div class="card">
+        <h2>AI Chatbot MVP</h2>
+        <p>Explore our interactive AI chatbot built with Streamlit. Designed for customer support, onboarding, and product guidance.</p>
+        <a href="https://stepwiselabs-agency-chatbot.streamlit.app/" target="_blank">Try the Chatbot</a>
+      </div>
+    </div>
+
+    <div class="footer">© 2025 Stepwise Labs. All rights reserved.</div>
+  </div>
 </body>
 </html>
