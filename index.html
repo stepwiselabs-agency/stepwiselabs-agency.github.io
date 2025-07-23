@@ -52,14 +52,11 @@
     /* Two‑column grid for MVPs */
     .mvp-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       width: 100%;
       max-width: 1200px;
       margin-bottom: 3rem;
-    }
-    @media (max-width: 800px) {
-      .mvp-grid { grid-template-columns: 1fr; }
     }
 
     .card {
@@ -97,15 +94,6 @@
       background: #5bb8e6;
     }
 
-    /* Iframe embed styling */
-    .chatbot-embed {
-      width: 100%;
-      height: 400px;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
-    }
-
     .footer {
       color: #aaa;
       font-size: 0.85rem;
@@ -117,7 +105,7 @@
   <!-- Video Background -->
   <video id="bg-video" autoplay muted loop>
     <source src="video-stepwise.mp4" type="video/mp4">
-    <!-- Fallback image/video -->
+    <!-- Fallback here if needed -->
   </video>
 
   <!-- Overlay Content -->
@@ -126,32 +114,31 @@
 
     <h1>AI MVPs Coming Soon</h1>
     <p class="subtitle">
-      From dynamic knowledge graphs to interactive chatbots—get ready for our next-gen AI tools.
+      From dynamic knowledge graphs to intuitive chatbots—experience our next‑gen AI tools in one place.
     </p>
 
     <div class="mvp-grid">
       <!-- Knowledge Graph Card -->
       <div class="card">
         <h2>Knowledge Graph Builder</h2>
-        <p>Automatically extract and visualize entities & relationships from your data—all in seconds.</p>
-        <a href="https://stepwiselabs-agency-knowledge-graph.streamlit.app/" class="btn" target="_blank">
-          Launch Demo
+        <p>Automatically extract and visualize entities & relationships from your data—no code required.</p>
+        <a href="https://wordlit.streamlit.app/" class="btn" target="_blank">
+          Launch Knowledge Graph
         </a>
       </div>
 
-      <!-- Chatbot Embed Card -->
+      <!-- Chatbot Card -->
       <div class="card">
         <h2>Interactive Chatbot</h2>
-        <p>Ask questions, get instant AI-powered answers, and see our customer‑support chatbot in action.</p>
-        <iframe
-          src="https://stepwiselabs-agency-chatbot.streamlit.app/"
-          class="chatbot-embed"
-          title="Stepwise Labs Chatbot">
-        </iframe>
+        <p>Ask questions and get instant AI-powered answers with our Streamlit‑built chatbot MVP.</p>
+        <a href="https://stepwiselabs-agency-chatbot.streamlit.app/" class="btn" target="_blank">
+          Try the Chatbot
+        </a>
       </div>
     </div>
 
     <div class="footer">© 2025 Stepwise Labs. All rights reserved.</div>
   </div>
+
 </body>
 </html>
