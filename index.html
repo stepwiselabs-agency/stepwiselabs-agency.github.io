@@ -9,106 +9,119 @@
   <style>
     /* Reset & globals */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { width: 100%; height: 100%; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    html, body { width: 100%; height: 100%; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-    /* Full-screen video background */
+    /* Full-screen video + dark overlay */
     #bg-video {
-      position: fixed;
-      top: 0; left: 0;
+      position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
+      filter: brightness(0.5) contrast(1.1); /* dim & boost contrast */
+      z-index: -2;
+    }
+    .dark-overlay {
+      position: fixed; top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.4);
       z-index: -1;
     }
 
-    /* Overlay container */
+    /* Content wrapper */
     .overlay {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      position: relative; z-index: 1;
       text-align: center;
       color: #fff;
       padding: 2rem 1rem;
-      backdrop-filter: brightness(0.6);
     }
 
     .logo-img {
       max-width: 180px;
-      width: 40%;
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.5rem;
+      display: block;
     }
     h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
     p.subtitle {
       font-size: 1.1rem;
-      color: #ddd;
+      color: #e0e0e0;
       margin-bottom: 2rem;
       max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
-    /* Two‑column grid for MVPs */
+    /* Responsive grid */
     .mvp-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      width: 100%;
       max-width: 1200px;
-      margin-bottom: 3rem;
+      margin: 0 auto 3rem;
     }
 
     .card {
-      background: rgba(0,0,0,0.5);
+      background: rgba(255,255,255,0.08);
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.8);
       transition: transform 0.3s, background 0.3s;
     }
     .card:hover {
       transform: translateY(-5px);
-      background: rgba(0,0,0,0.6);
+      background: rgba(255,255,255,0.12);
     }
     .card h2 {
-      color: #7dd3fc;
-      margin-bottom: 0.8rem;
+      color: #80e1ff;
       font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
     .card p {
-      color: #ccc;
-      margin-bottom: 1.2rem;
+      color: #ddd;
       line-height: 1.4;
+      margin-bottom: 1.2rem;
     }
     .card a.btn {
       display: inline-block;
-      padding: 0.7rem 1.4rem;
-      background: #7dd3fc;
-      color: #1f2a44;
-      border-radius: 6px;
+      padding: 0.8rem 1.6rem;
+      background: #80e1ff;
+      color: #0b1d2f;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: background 0.3s, box-shadow 0.3s;
     }
     .card a.btn:hover {
-      background: #5bb8e6;
+      background: #5ac4e3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
     .footer {
       color: #aaa;
       font-size: 0.85rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .card { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Video Background -->
+  <!-- 1) Background video -->
   <video id="bg-video" autoplay muted loop>
     <source src="video-stepwise.mp4" type="video/mp4">
-    <!-- Fallback here if needed -->
   </video>
+  <!-- 2) Dark overlay to boost contrast -->
+  <div class="dark-overlay"></div>
 
-  <!-- Overlay Content -->
+  <!-- 3) Foreground content -->
   <div class="overlay">
     <img src="logo2.png" alt="Stepwise Labs Logo" class="logo-img">
 
@@ -118,7 +131,7 @@
     </p>
 
     <div class="mvp-grid">
-      <!-- Knowledge Graph Card -->
+      <!-- Knowledge Graph -->
       <div class="card">
         <h2>Knowledge Graph Builder</h2>
         <p>Automatically extract and visualize entities & relationships from your data—no code required.</p>
@@ -127,7 +140,7 @@
         </a>
       </div>
 
-      <!-- Chatbot Card -->
+      <!-- Chatbot -->
       <div class="card">
         <h2>Interactive Chatbot</h2>
         <p>Ask questions and get instant AI-powered answers with our Streamlit‑built chatbot MVP.</p>
